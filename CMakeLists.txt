@@ -25,8 +25,8 @@ set_target_properties ( toluapp_lib PROPERTIES OUTPUT_NAME toluapp CLEAN_DIRECT_
 # Build app
 include_directories ( src/bin )
 set ( SRC_TOLUA src/bin/tolua.c src/bin/toluabind.c )
-add_executable ( toluapp ${SRC_TOLUA} )
-target_link_libraries ( toluapp toluapp_lib ${LUA_LIBRARIES} )
+add_executable ( toluapp ${SRC_TOLUA} ${SRC_LIBTOLUAPP} ${DEF_FILE} )
+target_link_libraries ( toluapp ${LUA_LIBRARIES} )
 
 # Install
 install_library ( toluapp_lib )
